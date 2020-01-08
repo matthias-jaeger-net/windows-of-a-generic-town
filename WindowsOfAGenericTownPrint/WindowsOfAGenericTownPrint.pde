@@ -90,24 +90,23 @@ PGraphics p;
 
 void setup() {
   // A1 300 dpi: 7016 x 9933
-  size(800, 400, P2D);
-  //background(255);
+  size(7016, 9933, P2D);
+  background(255);
   imageMode(CENTER);
 
-  p = createGraphics(800, 400, P2D);
+  p = createGraphics(width, height, P3D);
   p.beginDraw();
-  //p.background(random(20));
-  p.fill(200);
-  //for (int i = 0; i < 100; i++) {
-    //p.pushMatrix();
-    //p.translate(random(0, width), random(0, height));
-    //p.rotateY(random(TAU));
+  p.background(random(20));
+  for (int i = 0; i < 200; i++) {
+    p.pushMatrix();
+    p.translate(random(0, width), random(0, height));
+    p.rotateY(random(TAU));
     p.rect(0, 0, 100, 100);
-    //p.image(fascade(int(random(140, 300)), int(random(140, 300)), floor(random(3, 20)), floor(random(3, 20))), 0, 0);
-    //p.popMatrix();
-  //}
+    p.image(fascade(int(random(200, 1900)), int(random(200, 1900)), floor(random(3, 20)), floor(random(3, 20))), 0, 0);
+    p.popMatrix();
+  }
   p.endDraw();
-  p.save("out.jpg");
-  image(p, 400, 200);
+  image(p, width*0.5, height*0.5);
+  save("out.png");
   exit();
 }
